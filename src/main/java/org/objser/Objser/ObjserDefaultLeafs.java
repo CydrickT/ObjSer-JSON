@@ -11,6 +11,10 @@ class ObjserDefaultLeafs {
 	private final List<ObjserLeaf> leafs = new ArrayList<>();
 
 	protected ObjserDefaultLeafs() {
+		
+		///////////////
+		// Byte
+		///////////////
 
 		leafs.add(new ObjserLeaf("byte", (byte) 0) {
 			@Override
@@ -25,11 +29,32 @@ class ObjserDefaultLeafs {
 
 			@Override
 			public boolean isLeaf(Class clazz) {
-				return clazz.equals(Byte.class) ||  clazz.equals(byte.class);
+				return clazz.equals(byte.class);
 			}
 		});
+		
+		leafs.add(new ObjserLeaf("Byte", null) {
+			@Override
+			public Object deserialize(JsonNode node) {
+				return Byte.parseByte(node.get("_value").asText());
+			}
 
-		leafs.add(new ObjserLeaf("char", 'a') {
+			@Override
+			public void serialize(Object object, ObjectNode node) {
+				node.put("_value", ((Byte) object).toString());
+			}
+
+			@Override
+			public boolean isLeaf(Class clazz) {
+				return clazz.equals(Byte.class);
+			}
+		});
+		
+		///////////////
+		// Char
+		///////////////
+		
+		leafs.add(new ObjserLeaf("char", '\u0000') {
 			@Override
 			public Object deserialize(JsonNode node) {
 				return node.get("_value").asText().charAt(0);
@@ -42,10 +67,31 @@ class ObjserDefaultLeafs {
 
 			@Override
 			public boolean isLeaf(Class clazz) {
-				return clazz.equals(Character.class) || clazz.equals(char.class);
+				return clazz.equals(char.class);
+			}
+		});
+		
+		leafs.add(new ObjserLeaf("Char", null) {
+			@Override
+			public Object deserialize(JsonNode node) {
+				return node.get("_value").asText().charAt(0);
+			}
+
+			@Override
+			public void serialize(Object object, ObjectNode node) {
+				node.put("_value", ((Character) object).toString());
+			}
+
+			@Override
+			public boolean isLeaf(Class clazz) {
+				return clazz.equals(Character.class);
 			}
 		});
 
+		///////////////
+		// Short
+		///////////////
+		
 		leafs.add(new ObjserLeaf("short", (short) 0) {
 			@Override
 			public Object deserialize(JsonNode node) {
@@ -59,9 +105,30 @@ class ObjserDefaultLeafs {
 
 			@Override
 			public boolean isLeaf(Class clazz) {
-				return clazz.equals(Short.class) || clazz.equals(short.class);
+				return clazz.equals(short.class);
 			}
 		});
+		
+		leafs.add(new ObjserLeaf("Short", null) {
+			@Override
+			public Object deserialize(JsonNode node) {
+				return Short.parseShort(node.get("_value").asText());
+			}
+
+			@Override
+			public void serialize(Object object, ObjectNode node) {
+				node.put("_value", ((Short) object).toString());
+			}
+
+			@Override
+			public boolean isLeaf(Class clazz) {
+				return clazz.equals(Short.class);
+			}
+		});
+		
+		///////////////
+		// Int
+		///////////////
 
 		leafs.add(new ObjserLeaf("int", 0) {
 			@Override
@@ -76,9 +143,30 @@ class ObjserDefaultLeafs {
 
 			@Override
 			public boolean isLeaf(Class clazz) {
-				return clazz.equals(Integer.class) || clazz.equals(int.class);
+				return clazz.equals(int.class);
 			}
 		});
+		
+		leafs.add(new ObjserLeaf("Int", null) {
+			@Override
+			public Object deserialize(JsonNode node) {
+				return node.get("_value").asInt();
+			}
+
+			@Override
+			public void serialize(Object object, ObjectNode node) {
+				node.put("_value", ((Integer) object).toString());
+			}
+
+			@Override
+			public boolean isLeaf(Class clazz) {
+				return clazz.equals(Integer.class) ;
+			}
+		});
+		
+		///////////////
+		// Long
+		///////////////
 
 		leafs.add(new ObjserLeaf("long", 0l) {
 			@Override
@@ -93,9 +181,30 @@ class ObjserDefaultLeafs {
 
 			@Override
 			public boolean isLeaf(Class clazz) {
-				return clazz.equals(Long.class) || clazz.equals(long.class);
+				return clazz.equals(long.class);
 			}
 		});
+		
+		leafs.add(new ObjserLeaf("Long", null) {
+			@Override
+			public Object deserialize(JsonNode node) {
+				return node.get("_value").asLong();
+			}
+
+			@Override
+			public void serialize(Object object, ObjectNode node) {
+				node.put("_value", ((Long) object).toString());
+			}
+
+			@Override
+			public boolean isLeaf(Class clazz) {
+				return clazz.equals(Long.class);
+			}
+		});
+		
+		///////////////
+		// Float
+		///////////////
 
 		leafs.add(new ObjserLeaf("float", 0f) {
 			@Override
@@ -110,9 +219,30 @@ class ObjserDefaultLeafs {
 
 			@Override
 			public boolean isLeaf(Class clazz) {
-				return clazz.equals(Float.class) || clazz.equals(float.class);
+				return clazz.equals(float.class);
 			}
 		});
+		
+		leafs.add(new ObjserLeaf("Float", null) {
+			@Override
+			public Object deserialize(JsonNode node) {
+				return Float.parseFloat(node.get("_value").asText());
+			}
+
+			@Override
+			public void serialize(Object object, ObjectNode node) {
+				node.put("_value", ((Float) object).toString());
+			}
+
+			@Override
+			public boolean isLeaf(Class clazz) {
+				return clazz.equals(Float.class);
+			}
+		});
+		
+		///////////////
+		// Double
+		///////////////
 
 		leafs.add(new ObjserLeaf("double", 0d) {
 			@Override
@@ -127,9 +257,30 @@ class ObjserDefaultLeafs {
 
 			@Override
 			public boolean isLeaf(Class clazz) {
-				return clazz.equals(Double.class) || clazz.equals(double.class);
+				return clazz.equals(double.class);
 			}
 		});
+		
+		leafs.add(new ObjserLeaf("Double", null) {
+			@Override
+			public Object deserialize(JsonNode node) {
+				return node.get("_value").asDouble();
+			}
+
+			@Override
+			public void serialize(Object object, ObjectNode node) {
+				node.put("_value", ((Double) object).toString());
+			}
+
+			@Override
+			public boolean isLeaf(Class clazz) {
+				return clazz.equals(Double.class);
+			}
+		});
+		
+		///////////////
+		// Bool
+		///////////////
 
 		leafs.add(new ObjserLeaf("bool", false) {
 			@Override
@@ -144,11 +295,32 @@ class ObjserDefaultLeafs {
 
 			@Override
 			public boolean isLeaf(Class clazz) {
-				return clazz.equals(Boolean.class) || clazz.equals(boolean.class);
+				return clazz.equals(boolean.class);
 			}
 		});
+		
+		leafs.add(new ObjserLeaf("Bool", null) {
+			@Override
+			public Object deserialize(JsonNode node) {
+				return node.get("_value").asBoolean();
+			}
 
-		leafs.add(new ObjserLeaf("string", null) {
+			@Override
+			public void serialize(Object object, ObjectNode node) {
+				node.put("_value", ((Boolean) object).toString());
+			}
+
+			@Override
+			public boolean isLeaf(Class clazz) {
+				return clazz.equals(Boolean.class);
+			}
+		});
+		
+		///////////////
+		// String
+		///////////////
+
+		leafs.add(new ObjserLeaf("String", null) {
 			@Override
 			public Object deserialize(JsonNode node) {
 				return node.get("_value").asText();
@@ -164,11 +336,15 @@ class ObjserDefaultLeafs {
 				return clazz.equals(String.class);
 			}
 		});
+		
+		///////////////
+		// Class
+		///////////////
 
-		leafs.add(new ObjserLeaf("class", "") {
+		leafs.add(new ObjserLeaf("Class", null) {
 			@Override
-			public Object deserialize(JsonNode node) {
-				return node.get("_value").asText();
+			public Object deserialize(JsonNode node) throws ClassNotFoundException {
+				return Class.forName(node.get("_value").asText());
 			}
 
 			@Override
@@ -181,7 +357,6 @@ class ObjserDefaultLeafs {
 				return clazz.equals(Class.class);
 			}
 		});
-
 	}
 
 	protected List<ObjserLeaf> getLeafs() {

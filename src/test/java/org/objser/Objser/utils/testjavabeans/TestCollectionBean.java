@@ -1,4 +1,4 @@
-package org.objser.Objser.testjavabeans;
+package org.objser.Objser.utils.testjavabeans;
 
 import java.util.Arrays;
 import java.util.Collection;

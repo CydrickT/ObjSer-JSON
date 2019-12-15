@@ -1,4 +1,4 @@
-package org.objser.Objser.testjavabeans;
+package org.objser.Objser.utils.testjavabeans;
 
 public class TestPrimitiveBean implements IBean {
 	
@@ -27,11 +27,13 @@ public class TestPrimitiveBean implements IBean {
 	private final boolean primitiveBoolean;
 
 	private final String objectString;
+	
+	private final Class objectClass;
 
 	public TestPrimitiveBean(Byte objectByte, byte primitiveByte, Character objectChar, char primitiveChar,
 			Short objectShort, short primitiveShort, Integer objectInteger, int primitiveInteger, Long objectLong,
 			long primitiveLong, Float objectFloat, float primitiveFloat, Double objectDouble, double primitiveDouble,
-			Boolean objectBoolean, boolean primitiveBoolean, String objectString) {
+			Boolean objectBoolean, boolean primitiveBoolean, String objectString, Class objectClass) {
 		this.objectByte = objectByte;
 		this.primitiveByte = primitiveByte;
 		this.objectChar = objectChar;
@@ -49,6 +51,7 @@ public class TestPrimitiveBean implements IBean {
 		this.objectBoolean = objectBoolean;
 		this.primitiveBoolean = primitiveBoolean;
 		this.objectString = objectString;
+		this.objectClass = objectClass;
 	}
 
 	public Byte getObjectByte() {
@@ -118,6 +121,10 @@ public class TestPrimitiveBean implements IBean {
 	public String getObjectString() {
 		return objectString;
 	}
+	
+	public Class getObjectClass() {
+		return objectClass;
+	}
 
 	@Override
 	public int hashCode() {
@@ -126,6 +133,7 @@ public class TestPrimitiveBean implements IBean {
 		result = prime * result + ((objectBoolean == null) ? 0 : objectBoolean.hashCode());
 		result = prime * result + ((objectByte == null) ? 0 : objectByte.hashCode());
 		result = prime * result + ((objectChar == null) ? 0 : objectChar.hashCode());
+		result = prime * result + ((objectClass == null) ? 0 : objectClass.hashCode());
 		result = prime * result + ((objectDouble == null) ? 0 : objectDouble.hashCode());
 		result = prime * result + ((objectFloat == null) ? 0 : objectFloat.hashCode());
 		result = prime * result + ((objectInteger == null) ? 0 : objectInteger.hashCode());
@@ -168,6 +176,11 @@ public class TestPrimitiveBean implements IBean {
 			if (other.objectChar != null)
 				return false;
 		} else if (!objectChar.equals(other.objectChar))
+			return false;
+		if (objectClass == null) {
+			if (other.objectClass != null)
+				return false;
+		} else if (!objectClass.getCanonicalName().equals(other.objectClass.getCanonicalName()))
 			return false;
 		if (objectDouble == null) {
 			if (other.objectDouble != null)

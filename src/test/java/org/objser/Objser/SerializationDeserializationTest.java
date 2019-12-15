@@ -1,11 +1,14 @@
 package org.objser.Objser;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNull;
 
 import org.junit.Test;
-import org.objser.Objser.testjavabeans.TestIgnoredField;
+import org.objser.Objser.utils.TestBeanInstantiator;
+import org.objser.Objser.utils.testjavabeans.TestIgnoredField;
 
-public class AppTest 
+public class SerializationDeserializationTest 
 {
     @Test
     public void primitiveBeanTest() {
@@ -13,8 +16,18 @@ public class AppTest
     }
     
     @Test
+    public void nullPrimitiveBeanTest() {
+    	testSerialization(TestBeanInstantiator.getNullTestPrimitiveBean());
+    }
+    
+    @Test
     public void nestedBeanTest() {
     	testSerialization(TestBeanInstantiator.getTestNestedObjectBean());
+    }
+    
+    @Test
+    public void nullNestedBeanTest() {
+    	testSerialization(TestBeanInstantiator.getNullTestNestedObjectBean());
     }
     
     @Test

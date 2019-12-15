@@ -1,4 +1,4 @@
-package org.objser.Objser.testjavabeans;
+package org.objser.Objser.utils.testjavabeans;
 
 public class TestNestedObjectBean implements IBean {
 	
