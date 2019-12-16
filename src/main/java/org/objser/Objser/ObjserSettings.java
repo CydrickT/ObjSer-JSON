@@ -11,7 +11,6 @@ public class ObjserSettings {
 	private List<ObjserLeaf> leafs;
 	private boolean formattedPrint;
 	
-	
 	public ObjserSettings() {
 		this.fieldExclusionStrategies = new ArrayList<>();
 		this.leafs = new ObjserDefaultLeafs().getLeafs();
@@ -32,7 +31,13 @@ public class ObjserSettings {
 	}
 	
 	public ObjserSettings addLeafs(List<ObjserLeaf> leafs) {
-		this.leafs.addAll(leafs);
+		leafs.forEach(leaf -> {
+			if(getLeaf(leaf.getLeafTypeName()).isPresent()) {
+				throw new RuntimeException("Could not add leaf with type name " + leaf.getLeafTypeName() + " as it already exists.");
+			}else {
+				this.leafs.add(leaf);
+			}
+		});
 		return this;
 	}
 	

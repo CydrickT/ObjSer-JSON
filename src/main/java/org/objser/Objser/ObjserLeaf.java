@@ -8,10 +8,15 @@ public abstract class ObjserLeaf {
 	private final String leafTypeName;
 	private final Object defaultValue;
 	
-	public ObjserLeaf( String leafTypeName, Object defaultValue) {
+	public ObjserLeaf(String leafTypeName) {
+		this(leafTypeName, null);
+	}
+	
+	public ObjserLeaf(String leafTypeName, Object defaultValue) {
 		this.leafTypeName = leafTypeName;
 		this.defaultValue = defaultValue;
 	}
+
 
 	protected String getLeafTypeName() {
 		return leafTypeName;

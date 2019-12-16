@@ -33,7 +33,7 @@ class ObjserDefaultLeafs {
 			}
 		});
 		
-		leafs.add(new ObjserLeaf("Byte", null) {
+		leafs.add(new ObjserLeaf("Byte") {
 			@Override
 			public Object deserialize(JsonNode node) {
 				return Byte.parseByte(node.get("_value").asText());
@@ -71,7 +71,7 @@ class ObjserDefaultLeafs {
 			}
 		});
 		
-		leafs.add(new ObjserLeaf("Char", null) {
+		leafs.add(new ObjserLeaf("Char") {
 			@Override
 			public Object deserialize(JsonNode node) {
 				return node.get("_value").asText().charAt(0);
@@ -109,7 +109,7 @@ class ObjserDefaultLeafs {
 			}
 		});
 		
-		leafs.add(new ObjserLeaf("Short", null) {
+		leafs.add(new ObjserLeaf("Short") {
 			@Override
 			public Object deserialize(JsonNode node) {
 				return Short.parseShort(node.get("_value").asText());
@@ -147,7 +147,7 @@ class ObjserDefaultLeafs {
 			}
 		});
 		
-		leafs.add(new ObjserLeaf("Int", null) {
+		leafs.add(new ObjserLeaf("Int") {
 			@Override
 			public Object deserialize(JsonNode node) {
 				return node.get("_value").asInt();
@@ -185,7 +185,7 @@ class ObjserDefaultLeafs {
 			}
 		});
 		
-		leafs.add(new ObjserLeaf("Long", null) {
+		leafs.add(new ObjserLeaf("Long") {
 			@Override
 			public Object deserialize(JsonNode node) {
 				return node.get("_value").asLong();
@@ -223,7 +223,7 @@ class ObjserDefaultLeafs {
 			}
 		});
 		
-		leafs.add(new ObjserLeaf("Float", null) {
+		leafs.add(new ObjserLeaf("Float") {
 			@Override
 			public Object deserialize(JsonNode node) {
 				return Float.parseFloat(node.get("_value").asText());
@@ -261,7 +261,7 @@ class ObjserDefaultLeafs {
 			}
 		});
 		
-		leafs.add(new ObjserLeaf("Double", null) {
+		leafs.add(new ObjserLeaf("Double") {
 			@Override
 			public Object deserialize(JsonNode node) {
 				return node.get("_value").asDouble();
@@ -299,7 +299,7 @@ class ObjserDefaultLeafs {
 			}
 		});
 		
-		leafs.add(new ObjserLeaf("Bool", null) {
+		leafs.add(new ObjserLeaf("Bool") {
 			@Override
 			public Object deserialize(JsonNode node) {
 				return node.get("_value").asBoolean();
@@ -320,7 +320,7 @@ class ObjserDefaultLeafs {
 		// String
 		///////////////
 
-		leafs.add(new ObjserLeaf("String", null) {
+		leafs.add(new ObjserLeaf("String") {
 			@Override
 			public Object deserialize(JsonNode node) {
 				return node.get("_value").asText();
@@ -341,7 +341,7 @@ class ObjserDefaultLeafs {
 		// Class
 		///////////////
 
-		leafs.add(new ObjserLeaf("Class", null) {
+		leafs.add(new ObjserLeaf("Class") {
 			@Override
 			public Object deserialize(JsonNode node) throws ClassNotFoundException {
 				return Class.forName(node.get("_value").asText());
